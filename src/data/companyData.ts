@@ -111,27 +111,84 @@ export const TURNOVER_HISTORY = [
   { period: "2025-26", amount: 8.50 },
 ];
 
-export const TIER1_OEM_PARTNERS = [
-  { name: "Endurance Technologies Ltd.", category: "Tier-1 Auto Anchor" },
-  { name: "Motherson Sumi Systems (P) Ltd.", category: "Global Wiring & Auto" },
-  { name: "Minda Sai Ltd. (Pune & Murbad)", category: "Auto Systems & Switches" },
-  { name: "Norma Group Products India Pvt. Ltd.", category: "Fluid Handling & Clamps (KAN-BAN Partner)" },
-  { name: "Ognibene India Pvt. Ltd.", category: "Hydraulic Steering Systems" },
-  { name: "Polyhose India Pvt. Ltd.", category: "High-Pressure Fluid Lines" },
-  { name: "Imperial Auto Industries Ltd.", category: "Fluid Transmission Tubes" },
-  { name: "Nelson Global Products India Pvt. Ltd.", category: "Exhaust & Thermal Systems" },
-  { name: "Reflex Allen India Pvt. Ltd.", category: "Brake & Fluid Systems" },
-  { name: "Jayshree Tubestech Component Pvt. Ltd.", category: "Precision Tubular Parts" },
-  { name: "Jayashree Polymers Pvt. Ltd.", category: "Vibration Control Systems" },
-  { name: "Imperial Martor Engine Tubes Pvt. Ltd.", category: "Powertrain Conduit Lines" },
-  { name: "Asean Rubber Products Pvt. Ltd.", category: "Automotive Seals & Rings" },
-  { name: "Capco Industries Ltd. (MP)", category: "Heavy Equipment Castings" },
-  { name: "Tulsi Hydraulics", category: "Hydraulic Power Units" },
-  { name: "Hansa Flex India", category: "Fluid Dynamics & Hose Lines" },
-  { name: "ADM Joinflex India", category: "Flexible Couplings" },
-  { name: "Meena Elastomers Pvt. Ltd.", category: "Precision Seals" },
-  { name: "Polyrub Extrusion Pvt. Ltd.", category: "Engine Sub-assemblies" }
+export interface EngineeringApplication {
+  id: string;
+  name: string;
+  title: string;
+  category: string;
+  description: string;
+  keyComponents: string[];
+}
+
+export const ENGINEERING_APPLICATIONS: EngineeringApplication[] = [
+  {
+    id: "fluid-handling-clamps",
+    name: "Fluid Handling Systems & Industrial Clamping",
+    title: "Fluid Handling Systems & Industrial Clamping",
+    category: "Fluid & Conduit Management",
+    description: "Engineered clamping bands, high-tensile brackets, and vibration-proof retaining collars designed for multi-diameter fluid line routing in automotive and off-highway platforms.",
+    keyComponents: ["Gemi bands", "W-brackets", "Fuel line retaining clamps", "Vibration damping brackets"]
+  },
+  {
+    id: "hydraulic-steering",
+    name: "Hydraulic Steering & Cylinder Controls",
+    title: "Hydraulic Steering & Cylinder Controls",
+    category: "Fluid Power Dynamics",
+    description: "Precision-turned and forged hydraulic fittings engineered to hold up to 450+ bar dynamic impulse pressures without micro-fissuring or joint weeping under cyclic steering loads.",
+    keyComponents: ["Banjo steering couplers", "Swivel banjo bolts", "Cylinder rod eye ends", "Port adapters"]
+  },
+  {
+    id: "high-pressure-lines",
+    name: "High-Pressure Fluid Lines & Conduits",
+    title: "High-Pressure Fluid Lines & Conduits",
+    category: "Hydraulic & Pneumatic Circuitry",
+    description: "Critical fluid transmission connectors holding strict 10-micron dimensional tolerances on 24° cone seats and elastomeric sealing grooves for zero-leakage hydraulic transmission.",
+    keyComponents: ["DKO swivel connectors", "High-pressure end fittings", "T-junction splitters", "Metric union nuts"]
+  },
+  {
+    id: "automotive-fuel-systems",
+    name: "Automotive Fuel-System & Powertrain Components",
+    title: "Automotive Fuel-System & Powertrain Components",
+    category: "Powertrain & Fuel Delivery",
+    description: "Structural mounting fixtures, priming pump assemblies, and fuel filter brackets manufactured via high-tonnage stamping, precision drilling, and induction brazing.",
+    keyComponents: ["Fuel filter mounting brackets", "Priming pump adapters", "Brazed conduit headers", "Engine flanges"]
+  },
+  {
+    id: "braking-actuation",
+    name: "Commercial Braking & Mechanical Actuation Systems",
+    title: "Commercial Braking & Mechanical Actuation Systems",
+    category: "Safety-Critical Assemblies",
+    description: "Zero-defect safety components manufactured with laser-calibrated pivot bores, hydrogen de-embrittlement baking, and 100% Go/No-Go thread gauge verification.",
+    keyComponents: ["Custom brake lever assemblies", "Air brake banjo fittings", "Safety locking clips", "Hardened link pins"]
+  },
+  {
+    id: "structural-companion-flanges",
+    name: "Engine Companion Flanges & Articulation Joints",
+    title: "Engine Companion Flanges & Articulation Joints",
+    category: "Heavy Structural Hardware",
+    description: "Integrated hot-forged and CNC finish-machined flanges engineered with optimized continuous grain flow to withstand high-cyclic mechanical torque and engine vibration.",
+    keyComponents: ["High-tensile engine flanges", "Machined spacers", "Precision ground link pins", "End cap blocks"]
+  },
+  {
+    id: "bearing-protection",
+    name: "Transmission Bearing Housings & Protective Covers",
+    title: "Transmission Bearing Housings & Protective Covers",
+    category: "Powertrain Enclosures",
+    description: "Multi-stage stamped and face-profiled covers holding planar sealing flatness within 0.05mm to guarantee long-term lubricant containment and road debris exclusion.",
+    keyComponents: ["Heavy-duty bearing covers", "Wheel hub caps", "Tail lamp brackets", "Gasket sealing plates"]
+  },
+  {
+    id: "precision-tubular",
+    name: "Precision Tubular & Hydraulic Conduit Couplers",
+    title: "Precision Tubular & Hydraulic Conduit Couplers",
+    category: "Fluid Power Infrastructure",
+    description: "Automated cold bar processing and precision turn-mill machining for multi-port fluid distribution conduits, hydraulic power packs, and industrial machinery manifolds.",
+    keyComponents: ["Multi-port banjo blocks", "Threaded cylinder plugs", "Concentric spacers", "Custom hydraulic sleeves"]
+  }
 ];
+
+// Preserved for backwards compatibility across existing components
+export const TIER1_OEM_PARTNERS = ENGINEERING_APPLICATIONS;
 
 export const PRODUCTS: Product[] = [
   {
@@ -350,7 +407,7 @@ export const INDUSTRIES_SERVED = [
     id: "automotive",
     title: "Automotive & Commercial Vehicles",
     tagline: "Tier-1 Powertrain, Braking & Chassis Sub-Assemblies",
-    desc: "Long-standing manufacturing partner to India's foremost automotive anchors including Endurance Technologies, Motherson Sumi, and Norma Group. Delivering safety-critical brake lever assemblies, fuel lines, priming pump brackets, and heavy engine flanges.",
+    desc: "Established precision manufacturing supplier for premier automotive powertrain, fuel system, and chassis platforms. Delivering safety-critical brake lever assemblies, fuel lines, priming pump brackets, and heavy engine companion flanges.",
     keyComponents: ["Banjo fittings for brake fluid lines", "Engine companion flanges", "Priming pump & fuel filter brackets", "Locking clips & handbrake levers", "Reinforced bonnet/hood hinges (LH/RH)"],
     stats: "Over 2.5M+ automotive precision components delivered annually"
   },

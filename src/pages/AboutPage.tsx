@@ -95,7 +95,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
                   <TrendingUp className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-900 block">KAN-BAN &amp; JIT Delivery Setup</span>
-                    <span className="text-slate-600">Proven lean performance execution utilizing functional KAN-BAN loops deployed with Norma Group India.</span>
+                    <span className="text-slate-600">Proven lean performance execution utilizing functional KAN-BAN loops deployed across high-volume automotive and fluid system supply schedules.</span>
                   </div>
                 </div>
 

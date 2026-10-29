@@ -65,7 +65,7 @@ export default function App() {
       products: 'Precision Component Range – Banjo Fittings, Flanges & Brackets | SEW',
       capabilities: 'Manufacturing Capabilities – 101 Machines, 14 CNC Centers | SEW',
       quality: 'Quality Assurance & Metrology Lab – ISO 9001:2008 & 349 Gauges | SEW',
-      industries: 'Industries Served & 19 Tier-1 OEM Partners – Sai Engineering Works',
+      industries: 'Industries Served & Precision Applications – Sai Engineering Works',
       contact: 'Contact & Request a Quote (RFQ) – Sai Engineering Works | Pune Plant',
     };
 

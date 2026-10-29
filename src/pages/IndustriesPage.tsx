@@ -113,37 +113,58 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ setCurrentPage }
         </div>
       </section>
 
-      {/* 3. 19 Established Tier-1 & OEM Supply Relationships Grid */}
-      <section className="bg-slate-100 py-16 border-y border-slate-200">
+      {/* 3. Engineering Applications & Precision Component Solutions */}
+      <section className="bg-slate-900 text-white py-16 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <span className="text-xs font-mono-tech uppercase tracking-widest text-blue-900 font-bold block">
-              Trusted Supply Relationships · Section 2
+            <span className="text-xs font-mono-tech uppercase tracking-widest text-cyan-400 font-bold block">
+              ENGINEERING APPLICATIONS &amp; APPLICATION EXPERTISE
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              19 Established Tier-1 &amp; OEM Partners
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Precision Component Solutions Across Industry Sectors
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Production processes and zero-defect quality thresholds are trusted under continuous delivery frameworks by leading automotive and industrial anchors across India and global supply lines:
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Production processes and zero-defect quality thresholds engineered under continuous delivery frameworks for global powertrain, hydraulic, and structural assemblies:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {TIER1_OEM_PARTNERS.map((partner, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {TIER1_OEM_PARTNERS.map((app, idx) => (
               <div
                 key={idx}
-                className="bg-white p-4 border border-slate-200 rounded-xs shadow-2xs space-y-2 hover:border-blue-950 transition-colors"
+                className="bg-slate-950 p-5 border border-slate-800 rounded-xs space-y-3 hover:border-cyan-500/50 transition-colors flex flex-col justify-between"
               >
-                <div className="flex items-center justify-between text-[10px] font-mono-tech text-slate-400">
-                  <span>ANCHOR #{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
-                  <span className="text-emerald-700 font-semibold">VERIFIED</span>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-[10px] font-mono-tech text-cyan-400">
+                    <span>APPLICATION #{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
+                    <span className="text-slate-500">{app.category}</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-white leading-snug">
+                    {app.title || app.name}
+                  </h3>
+                  {app.description && (
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      {app.description}
+                    </p>
+                  )}
                 </div>
-                <h4 className="text-xs font-bold text-slate-900 leading-snug">
-                  {partner.name}
-                </h4>
-                <div className="text-[11px] text-blue-900 font-mono-tech pt-1 border-t border-slate-100">
-                  {partner.category}
-                </div>
+                {app.keyComponents && (
+                  <div className="pt-2 border-t border-slate-800/80">
+                    <span className="text-[10px] font-mono-tech text-slate-500 uppercase block mb-1">
+                      Key Manufactured Parts:
+                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {app.keyComponents.map((part, pIdx) => (
+                        <span
+                          key={pIdx}
+                          className="px-1.5 py-0.5 bg-slate-900 border border-slate-800 text-[10px] text-slate-300 font-mono-tech rounded-xs"
+                        >
+                          {part}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
